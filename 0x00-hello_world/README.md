@@ -1,0 +1,1 @@
+#This C script command mandatory for all ALX School projects
