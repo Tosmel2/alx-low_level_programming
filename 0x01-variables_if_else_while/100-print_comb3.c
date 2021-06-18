@@ -1,36 +1,32 @@
 #include <stdio.h>
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
+ * main - program that prints all possible different combinations of 2 digits
+ * Return: 0
  */
 int main(void)
-
 {
-int number_left; /*Decarling statement*/
-int number_right;
+	int c = 0;
+	int f_d;
+	int l_d;
 
-/*for 0-9 with ASCII*/
-for (number_left = 48; number_left <= 57; number_left++)
-{
-for (number_right = 48; number_right <= 57; number_right++)
-{
-putchar(number_left); /*print  number*/
-putchar (number_right);
+	while (c <= 99)
+	{
+		f_d = (c / 10 + '0');
+		l_d = (c % 10 + '0');
 
-/*break program if the condition is true (if is 99)*/
-if ((number_left == 57) && (number_right == 57))
-{
-break; /*terminate the program*/
-}
-putchar(','); /*print (,)*/
-putchar (' '); /*print a space*/
-}
+		if (f_d < l_d)
+		{
+			putchar(f_d);
+			putchar(l_d);
 
-}
-
-putchar('\n'); /*new line*/
-
+			if (c != 89)
+			{
+				putchar(',');
+				putchar(' ');
+			}
+		}
+		c++;
+	}
+putchar('\n');
 return (0);
-
 }
