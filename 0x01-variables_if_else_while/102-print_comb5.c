@@ -29,3 +29,16 @@ if (first_nums == 98 && second_nums == 99)
 {
 break;
 }
+
+putchar(','); /*print (,)*/
+putchar (' '); /*prirint a space*/
+
+} /*end for #2*/
+
+} /*end for #1*/
+
+putchar('\n'); /*new line*/
+
+return (0);
+
+}
