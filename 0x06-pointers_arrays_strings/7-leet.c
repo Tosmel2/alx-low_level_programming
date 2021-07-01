@@ -1,28 +1,29 @@
 #include "holberton.h"
 
 /**
- * leet - encode a string into 1337
- * @s: string
- * Return: encoded string `s`
+ * leet - function that encodes a string into 1337
+ * @str: character to be checked
+ * Return: if seperator return 1. Otherwise return 0;
  */
-
-char *leet(char *s)
+char *leet(char *str)
 {
-	int i;
+	/*Declaring variables*/
+	int count = 0, i = 0;
+	char *letters = "aeotlAEOTL";
+	char *nums = "4307143071";
 
-	for (i = 0; s[i] != '\0'; i++)
+	/*Start WHILE*/
+	while (str[count] != '\0')
 	{
-		while (s[i] == 'a' || s[i] == 'A')
-			s[i] = '4';
-		while (s[i] == 'e' || s[i] == 'E')
-			s[i] = '3';
-		while (s[i] == 'o' || s[i] == 'O')
-			s[i] = '0';
-		while (s[i] == 't' || s[i] == 'T')
-			s[i] = '7';
-		while (s[i] == 'l' || s[i] == 'L')
-			s[i] = '1';
-	}
+		i = 0;
+		while (letters[i] != '\0') /*Evaluate all cases*/
+		{
+			if (str[count] == letters[i]) /*Match between string a letters*/
+				str[count] = nums[i];
+			i++;
+		}
+		count++; /*Add count*/
+	} /*End WHILE*/
 
-	return (s);
+	return (str);
 }
