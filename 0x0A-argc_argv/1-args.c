@@ -6,7 +6,7 @@
  *     *     * @argv: arguments to program
  *      *      *
  *       *       * Return: 0 if successful
- *        *        */
+ */
 int main(int argc, char **argv)
 {
 			printf("%d\n", argc - 1);
