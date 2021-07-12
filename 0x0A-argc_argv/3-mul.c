@@ -1,45 +1,20 @@
 #include <stdio.h>
-#include<stdlib.h>
-
+#include <stdlib.h>
 /**
- * main - Print the name of the program
- * @argc: Count arguments
- * @argv: Arguments
+ * main - multiply two numbers passed to program
  *
- * Return: Always 0 (Success)
+ * @argc: number of arguments to program
+ * @argv: arguments to program
+ *
+ * Return: 0 if successful
  */
-
-int main(int argc, char *argv[])
-
+int main(int argc, char **argv)
 {
-	/*Declaring variables*/
-	int count;
-	int first_num;
-	int second_num;
-	int result;
-
-	(void) argc; /*Ignore argc*/
-
-	count = 1;
-	if (argv[count] != '\0') /*Goes through the whole array*/
+	if (argc != 3)
 	{
-		/*Condition If the program does not receive two arguments*/
-		if (argv[count] == NULL || argv[count + 1] == NULL)
-		{
-			printf("Error\n");
-			return (1);
-		}
-
-		else /*Condition If the program does receive two arguments*/
-		{
-			first_num = atoi(argv[count]); /*ATOI --> convert string to int*/
-			second_num = atoi(argv[count + 1]);
-			result = first_num * second_num;
-
-			printf("%d\n", result);
-		}
-
+		printf("Error\n");
+		return (1);
 	}
-
+	printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
 	return (0);
 }
