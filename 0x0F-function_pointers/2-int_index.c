@@ -1,15 +1,22 @@
 #include <stdio.h>
 
 /**
- *  * print_name - prints name using function f
- *   *
- *    * @name: name to print
- *     * @f: function to use
- *      *
- *       * Return: void
- *        */
-void print_name(char *name, void (*f)(char *))
+ * int_index - checks an array for an integer that matches
+ * the function defined by cmp
+ *
+ * @array: array to search
+ * @size: size of array
+ * @cmp: comparison function to check with
+ *
+ * Return: index of match, -1 otherwise;
+ */
+int int_index(int *array, int size, int (*cmp)(int))
 {
-		if (f != NULL && name != NULL)
-					(*f)(name);
+	int i;
+
+	if (cmp != NULL && array != NULL)
+		for (i = 0; i < size; i++)
+			if (cmp(array[i]))
+				return (i);
+	return (-1);
 }
