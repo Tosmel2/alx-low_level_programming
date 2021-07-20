@@ -1,15 +1,19 @@
 #include <stdio.h>
 
 /**
- *  * print_name - prints name using function f
- *   *
- *    * @name: name to print
- *     * @f: function to use
- *      *
- *       * Return: void
- *        */
-void print_name(char *name, void (*f)(char *))
+ * array_iterator - performs an action on a whole array
+ *
+ * @array: array to act on
+ * @size: size of array
+ * @action: function to execute on array
+ *
+ * Return: 0
+ */
+void array_iterator(int *array, size_t size, void (*action)(int))
 {
-		if (f != NULL && name != NULL)
-					(*f)(name);
+	size_t i;
+
+	if (action != NULL && array != NULL)
+		for (i = 0; i < size; i++)
+			action(array[i]);
 }
