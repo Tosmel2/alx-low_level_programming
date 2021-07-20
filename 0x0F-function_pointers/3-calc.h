@@ -1,15 +1,24 @@
-#include <stdio.h>
+#ifndef CALCH
+#define CALCH
+
+int op_add(int a, int b);
+int op_sub(int a, int b);
+int op_mul(int a, int b);
+int op_div(int a, int b);
+int op_mod(int a, int b);
+
+int (*get_op_func(char *s))(int, int);
 
 /**
- *  * print_name - prints name using function f
- *   *
- *    * @name: name to print
- *     * @f: function to use
- *      *
- *       * Return: void
- *        */
-void print_name(char *name, void (*f)(char *))
+ * struct op - Struct op
+ *
+ * @op: The operator
+ * @f: The function associated
+ */
+typedef struct op
 {
-		if (f != NULL && name != NULL)
-					(*f)(name);
-}
+	char *op;
+	int (*f)(int a, int b);
+} op_t;
+
+#endif
