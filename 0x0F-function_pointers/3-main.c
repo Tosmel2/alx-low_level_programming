@@ -1,39 +1,40 @@
 #include "3-calc.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
- * main - calculates two numbers given a string
- *
- * @ac: number of arguments
- * @av: array of argument strings
- *
- * Return: 0 on success.
+ * main - arguments for struct
+ * @argc: numbers arguments
+ * @argv: string arguments
+ * Return: 0.
  */
-int main(int ac, char *av[])
+
+int main(int argc, char *argv[])
 {
-	int a, b;
-	int (*f)(int, int);
+	int i, j;
+	int (*d)(int, int);
 
-	if (ac != 4)
+	if (argc != 4)
 	{
 		printf("Error\n");
-		return (98);
+		exit(98);
 	}
-	a = atoi(av[1]);
-	b = atoi(av[3]);
-	f = get_op_func(av[2]);
-	if (f == NULL || av[2][1] != 0)
+	if (argv[2][1] != '\0')
 	{
 		printf("Error\n");
-		return (99);
-	}
-	if ((av[2][0] == '/' || av[2][0] == '%') && b == 0)
-	{
-		printf("Error\n");
-		return (100);
+		exit(99);
 	}
 
-	printf("%d\n", f(a, b));
+	d = get_op_func(argv[2]);
+		if (d == NULL)
+		{
+			printf("Error\n");
+			exit(99);
+		}
+
+
+	i = atoi(argv[1]);
+	j = atoi(argv[3]);
+
+	printf("%d\n", d(i, j));
+
 	return (0);
 }
