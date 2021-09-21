@@ -1,0 +1,4 @@
+#!/bin/bash
+gcc -fPIC -g -c - wall -pendatic - werror - extra *.c
+gcc -shared -wl, -soname, liball.so -o liball.so *.o -lc
+
